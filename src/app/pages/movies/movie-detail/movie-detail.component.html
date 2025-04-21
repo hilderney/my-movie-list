@@ -17,4 +17,11 @@
     <p> <strong> Duração: </strong> {{ movie.runtime }} min </p>
     <p class="overview">{{ movie.overview }}</p>
   </div>
+
+  <div class="user-rating">
+    <app-star-rating
+      [rating]="userRating"
+      (rated)="onRated($event)"
+    ></app-star-rating>
+  </div>
 </div>

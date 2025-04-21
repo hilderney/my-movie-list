@@ -1,5 +1,5 @@
 <div class="movie-card">
-  <div class="link" [routerLink]="['/movies/details', movie.id]">
+  <div class="card-link" [routerLink]="['/movies/details', movie.id]">
     <img [src]="imageUrl" [alt]="movie?.title"  />
 
     <div class="info">
@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div>
+  <div class="card-rating">
     <app-star-rating
       [rating]="userRating"
       (rated)="onRated($event)"

@@ -1,37 +1,39 @@
-<section class="stats-wrapper">
-  <button class="toggle-button" (click)="toggleStats()">
-    {{ showStats ? 'Ocultar Estatísticas' : 'Mostrar Estatísticas' }}
-  </button>
+<div class="top-rated-wrapper">
+  <section class="stats-wrapper">
+    <button class="toggle-button" (click)="toggleStats()">
+      {{ showStats ? 'Ocultar Estatísticas' : 'Mostrar Estatísticas' }}
+    </button>
 
-  <div class="stats-card" *ngIf="showStats" [@slideToggle]>
-    <h2>Seu Resumo de Avaliações</h2>
+    <div class="stats-card" *ngIf="showStats" [@slideToggle]>
+      <h2>Seu Resumo de Avaliações</h2>
 
-    <div class="stats-grid">
-      <div class="stat-box">
-        <h3>{{ totalRated }}</h3>
-        <p>Filmes Avaliados</p>
-      </div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <h3>{{ totalRated }}</h3>
+          <p>Filmes Avaliados</p>
+        </div>
 
-      <div class="stat-box">
-        <h3>{{ averageRating | number: '1.1-2' }}</h3>
-        <p>Média de Notas</p>
-      </div>
+        <div class="stat-box">
+          <h3>{{ averageRating | number: '1.1-2' }}</h3>
+          <p>Média de Notas</p>
+        </div>
 
-      <div class="stat-box genres">
-        <h3>Gêneros + Votados</h3>
-        <ul>
-          <li *ngFor="let genre of favoriteGenres">
-            {{ genre.name }} <span class="count">({{ genre.count }})</span>
-          </li>
-        </ul>
+        <div class="stat-box genres">
+          <h3>Gêneros + Votados</h3>
+          <ul>
+            <li *ngFor="let genre of favoriteGenres">
+              {{ genre.name }} <span class="count">({{ genre.count }})</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <h2>Top 10 Filmes Avaliados</h2>
-  <div class="movie-grid">
-    <app-movie-card *ngFor="let movie of topMovies" [movie]="movie"></app-movie-card>
-  </div>
-</section>
+  <section class="movies-wrapper">
+    <h2>Top 10 Filmes Avaliados</h2>
+    <div class="movie-grid">
+      <app-movie-card *ngFor="let movie of topMovies" [movie]="movie"></app-movie-card>
+    </div>
+  </section>
+</div>

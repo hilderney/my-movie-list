@@ -16,7 +16,8 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
     RouterModule
   ],
   exports: [
-    MovieCardComponent
+    MovieCardComponent,
+    StarRatingComponent
   ]
 })
 export class SharedModule { }

@@ -24,7 +24,7 @@ export class RatingService {
     }));
   }
 
-  setRating(movieId: number, rating: number): void {
+  setRating(movieId: string, rating: number): void {
     const ratings = this.getRatings();
     ratings[movieId] = rating;
     localStorage.setItem(this.storageKey, JSON.stringify(ratings));

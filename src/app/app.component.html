@@ -1,1 +1,23 @@
+<nav class="main-nav">
+  <button class="hamburger" (click)="toggleMenu()" aria-label="Abrir menu">
+    <div class="icon" [class.open]="menuOpen"> &#9776; </div>
+  </button>
+
+  <ul [class.open]="menuOpen || isWideScreen">
+    <a routerLink="movies/list">
+      <li [class.active]="isRoute('/list')" (click)="handleMenuClick()">
+        Lista de Filmes
+      </li>
+    </a>
+    <a routerLink="movies//top-rated">
+      <li [class.active]="isRoute('/top-rated')" (click)="handleMenuClick()">
+        Top Avaliados
+      </li>
+    </a>
+    <li *ngIf="isDetailRoute" class="details" (click)="handleMenuClick()">
+      Detalhes do Filme
+    </li>
+  </ul>
+</nav>
+
 <router-outlet />

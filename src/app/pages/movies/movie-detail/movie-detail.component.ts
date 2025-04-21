@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, map, Observable } from 'rxjs';
 import { MoviesService } from '../../../../shared/services/movie.service';
+import { RatingService } from '../../../../shared/services/rating.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -10,22 +11,25 @@ import { MoviesService } from '../../../../shared/services/movie.service';
   styleUrls: ['./movie-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MovieDetailComponent implements OnInit {
+export class MovieDetailComponent {
   movie$!: Observable<any>;
+  movieId = '';
+  userRating = 0;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private ratingService: RatingService
   ) {
     console.log('MovieDetailComponent constructor');
     this.movie$ = this.route.paramMap.pipe(
-      switchMap(params => this.moviesService.getMovieById(params.get('id')!))
+      switchMap(params => {
+        this.movieId = params.get('id')!;
+        this.userRating = this.ratingService.getRating(this.movieId);
+        return this.moviesService.getMovieById(this.movieId);
+      })
     );
-  }
-
-  ngOnInit(): void {
-    console.log('MovieDetailComponent OnInit called');
   }
 
   getGenres(genres: any[]): string {
@@ -34,5 +38,10 @@ export class MovieDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back(); // Navega para a página anterior
+  }
+
+  onRated(movieRating: number) {
+    this.userRating = movieRating;
+    this.ratingService.setRating(this.movieId, movieRating);
   }
 }
