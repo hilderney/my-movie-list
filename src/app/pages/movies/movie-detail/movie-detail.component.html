@@ -1,0 +1,20 @@
+<div *ngIf="movie$ | async as movie" class="movie-detail">
+
+  <div class="action-buttons">
+    <button (click)="goBack()" class="back-button">Voltar</button>
+  </div>
+
+  <div class="poster">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title" />
+  </div>
+
+  <div class="info">
+    <h1>{{ movie.title }}</h1>
+    <p class="tagline">{{ movie.tagline }}</p>
+    <p> <strong> Genero: </strong> {{ getGenres(movie.genres) }} </p>
+    <p> <strong> Data de lançamento: </strong> {{ movie.release_date | date }} </p>
+    <p> <strong> Nota: </strong> {{ movie.vote_average | number: '1.0-3' }}/10 </p>
+    <p> <strong> Duração: </strong> {{ movie.runtime }} min </p>
+    <p class="overview">{{ movie.overview }}</p>
+  </div>
+</div>

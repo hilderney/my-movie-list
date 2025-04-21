@@ -1,0 +1,70 @@
+.movie-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+
+  .poster img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .info {
+    flex: 1;
+    min-width: 250px;
+
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .overview {
+      margin-top: 1rem;
+    }
+  }
+
+  .action-buttons {
+    width: 100%;
+    flex-grow: 1;
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #ff4c4c;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .back-button:active {
+      background-color: #e04343;
+      transform: translateY(0);
+    }
+
+    .back-button svg {
+      width: 16px;
+      height: 16px;
+      fill: white;
+    }
+  }
+}

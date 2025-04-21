@@ -1,0 +1,18 @@
+<div class="movie-card">
+  <div class="link" [routerLink]="['/movies/details', movie.id]">
+    <img [src]="imageUrl" [alt]="movie?.title"  />
+
+    <div class="info">
+      <h3>{{ movie?.title }}</h3>
+      <p class="release-date">{{ movie?.release_date | date }}</p>
+      <p class="rating">{{ movie?.vote_average }}/10</p>
+    </div>
+  </div>
+
+  <div>
+    <app-star-rating
+      [rating]="userRating"
+      (rated)="onRated($event)"
+    ></app-star-rating>
+  </div>
+</div>

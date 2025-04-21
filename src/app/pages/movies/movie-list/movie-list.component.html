@@ -1,0 +1,11 @@
+<div class="movie-list">
+  <div class="filter">
+    <input type="text" [formControl]="searchControl" placeholder="Buscar filmes..." class="search-input" />
+  </div>
+
+  <div class="grid">
+    <ng-container *ngIf="movies$ | async as movies">
+      <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
+    </ng-container>
+  </div>
+</div>
