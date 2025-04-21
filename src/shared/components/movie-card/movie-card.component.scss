@@ -1,0 +1,36 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .info {
+    padding: 16px;
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 0 0 8px 0;
+    }
+
+    .release-date,
+    .rating {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 2px 0;
+    }
+  }
+}

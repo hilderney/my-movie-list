@@ -1,0 +1,16 @@
+.stars {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+  justify-content: space-around;
+
+  .star {
+    font-size: 32px;
+    color: #ccc;
+    transition: all 0.2s ease-in-out;
+
+    &.filled {
+      color: gold;
+    }
+  }
+}

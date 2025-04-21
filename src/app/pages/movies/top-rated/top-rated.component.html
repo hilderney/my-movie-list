@@ -1,0 +1,39 @@
+<div class="top-rated-wrapper">
+  <section class="stats-wrapper">
+    <button class="toggle-button" (click)="toggleStats()">
+      {{ showStats ? ("HIDE_STATS" | translate) : ("SHOW_STATS" | translate) }}
+    </button>
+
+    <div class="stats-card" *ngIf="showStats" [@slideToggle]>
+      <h2> {{ "AVALIATIONS" | translate }} </h2>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <p> {{ "MOVIES" | translate }} </p>
+          <h3>{{ totalRated }}</h3>
+        </div>
+
+        <div class="stat-box">
+          <p> {{ "SCORE" | translate }} </p>
+          <h3>{{ averageRating | number: '1.1-2' }}</h3>
+        </div>
+
+        <div class="stat-box genres">
+          <h3> {{ "GENRES" | translate }} </h3>
+          <ul>
+            <li *ngFor="let genre of favoriteGenres">
+              {{ genre.name }} <span class="count">({{ genre.count }})</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="movies-wrapper">
+    <h2> {{ "YOUR_RATINGS" | translate }} </h2>
+    <div class="movie-grid">
+      <app-movie-card *ngFor="let movie of topMovies" [movie]="movie"></app-movie-card>
+    </div>
+  </section>
+</div>
