@@ -6,6 +6,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { TopRatedComponent } from './top-rated/top-rated.component';
     MoviesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule,
     SharedModule
   ]
 })

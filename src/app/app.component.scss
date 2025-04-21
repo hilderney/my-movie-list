@@ -73,6 +73,37 @@
   }
 }
 
+.language-switcher {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+
+  button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0px;
+    width: 20px;
+    height: 20px;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+
+    &:hover {
+      transform: scale(1.1);
+      border-color: #007aff;
+    }
+
+    &.active {
+      background-color: #007aff10;
+      border-color: #007aff;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .main-nav {
     height: 40px;
@@ -102,6 +133,14 @@
       .details {
         text-align: center;
       }
+    }
+  }
+
+  .language-switcher {
+    justify-content: center;
+
+    button {
+      font-size: 10px;
     }
   }
 }

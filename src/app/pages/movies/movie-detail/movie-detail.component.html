@@ -1,7 +1,7 @@
 <div *ngIf="movie$ | async as movie" class="movie-detail">
 
   <div class="action-buttons">
-    <button (click)="goBack()" class="back-button">Voltar</button>
+    <button (click)="goBack()" class="back-button"> {{ "BACK" | translate }} </button>
   </div>
 
   <div class="poster">
@@ -11,17 +11,17 @@
   <div class="info">
     <h1>{{ movie.title }}</h1>
     <p class="tagline">{{ movie.tagline }}</p>
-    <p> <strong> Genero: </strong> {{ getGenres(movie.genres) }} </p>
-    <p> <strong> Data de lançamento: </strong> {{ movie.release_date | date }} </p>
-    <p> <strong> Nota: </strong> {{ movie.vote_average | number: '1.0-3' }}/10 </p>
-    <p> <strong> Duração: </strong> {{ movie.runtime }} min </p>
+    <p> <strong> {{ "GENRES" | translate }}: </strong> {{ getGenres(movie.genres) }} </p>
+    <p> <strong> {{ "RELEASE_DATE" | translate }}: </strong> {{ movie.release_date | date }} </p>
+    <p> <strong> {{ "RATING" | translate }}: </strong> {{ movie.vote_average | number: '1.0-3' }}/10 </p>
+    <p> <strong> {{ "DURATION" | translate }}: </strong> {{ movie.runtime }} min </p>
     <p class="overview">{{ movie.overview }}</p>
-  </div>
 
-  <div class="user-rating">
-    <app-star-rating
-      [rating]="userRating"
-      (rated)="onRated($event)"
-    ></app-star-rating>
+    <div class="user-rating">
+      <app-star-rating
+        [rating]="userRating"
+        (rated)="onRated($event)"
+      ></app-star-rating>
+    </div>
   </div>
 </div>

@@ -1,21 +1,31 @@
+<div class="language-switcher">
+  <button [class.active]="currentLang === 'pt'" (click)="changeLang('pt')" aria-label="Português">
+    BR
+  </button>
+
+  <button [class.active]="currentLang === 'en'" (click)="changeLang('en')" aria-label="English">
+    US
+  </button>
+</div>
+
 <nav class="main-nav">
-  <button class="hamburger" (click)="toggleMenu()" aria-label="Abrir menu">
+  <button class="hamburger" (click)="toggleMenu()">
     <div class="icon" [class.open]="menuOpen"> &#9776; </div>
   </button>
 
   <ul [class.open]="menuOpen || isWideScreen">
     <a routerLink="movies/list">
       <li [class.active]="isRoute('/list')" (click)="handleMenuClick()">
-        Lista de Filmes
+        {{ "LIST" | translate }}
       </li>
     </a>
     <a routerLink="movies//top-rated">
       <li [class.active]="isRoute('/top-rated')" (click)="handleMenuClick()">
-        Top Avaliados
+        {{ "TOP_RATED" | translate }}
       </li>
     </a>
     <li *ngIf="isDetailRoute" class="details" (click)="handleMenuClick()">
-      Detalhes do Filme
+      {{ "DETAILS" | translate }}
     </li>
   </ul>
 </nav>

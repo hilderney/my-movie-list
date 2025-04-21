@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
 
 @Component({
@@ -13,8 +14,13 @@ export class AppComponent {
   isDetailRoute: boolean = false;
   menuOpen = false;
   isWideScreen = window.innerWidth > 768;
+  currentLang = this.translate.currentLang || this.translate.getDefaultLang();
 
-  constructor(private router: Router) {
+
+  constructor(
+    private router: Router,
+    private translate: TranslateService
+  ) {
     this.router.events
       .pipe(
         filter((e) => e instanceof NavigationEnd)
@@ -27,6 +33,11 @@ export class AppComponent {
 
   isRoute(path: string): boolean {
     return this.currentRoute.startsWith(path);
+  }
+
+  changeLang(lang: 'pt' | 'en') {
+    this.translate.use(lang);
+    this.currentLang = lang;
   }
 
   handleMenuClick() {
