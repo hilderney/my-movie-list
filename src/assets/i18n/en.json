@@ -13,5 +13,6 @@
   "GENRES": "Genres",
   "RELEASE_DATE": "Release date",
   "RATING": "Rating",
-  "DURATION": "Duration"
+  "DURATION": "Duration",
+  "SEARCH": "Search movies"
 }
