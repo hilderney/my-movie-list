@@ -14,5 +14,7 @@
   "RELEASE_DATE": "Release date",
   "RATING": "Rating",
   "DURATION": "Duration",
-  "SEARCH": "Search movies"
+  "SEARCH": "Search movies",
+  "INSTALL": "Install APP",
+  "IGNORE_INSTALL": "Ignore"
 }

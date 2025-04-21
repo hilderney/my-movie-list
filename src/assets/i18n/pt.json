@@ -14,6 +14,8 @@
   "RELEASE_DATE": "Data de lançamento",
   "RATING": "Nota",
   "DURATION" : "Duração",
-  "SEARCH": "Buscar filmes"
+  "SEARCH": "Buscar filmes",
+  "INSTALL": "Instalar Aplicativo",
+  "IGNORE_INSTALL": "Ignorar Instalação"
 }
 

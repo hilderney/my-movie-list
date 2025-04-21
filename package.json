@@ -1,10 +1,12 @@
 {
-  "name": "mymovielist",
+  "name": "my-movie-list",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "pwa": "npm run build && npm run http-serve",
+    "build": "ng build --configuration production --base-href ./",
+    "http-serve": "npx http-server -p 4201 ./dist/mymovielist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -18,6 +20,7 @@
     "@angular/platform-browser": "^17.1.0",
     "@angular/platform-browser-dynamic": "^17.1.0",
     "@angular/router": "^17.1.0",
+    "@angular/service-worker": "^17.1.0",
     "@ngx-translate/core": "^16.0.4",
     "@ngx-translate/http-loader": "^16.0.1",
     "rxjs": "~7.8.0",

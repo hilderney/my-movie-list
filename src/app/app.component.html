@@ -1,3 +1,12 @@
+<div class="pwa-installer" *ngIf="showInstallButton">
+  <button (click)="installPWA()" class="install-button">
+    {{ "INSTALL" | translate }}
+  </button>
+  <button (click)="showInstallButton = false" class="cancel-install">
+    {{ "IGNORE_INSTALL" | translate }}
+  </button>
+</div>
+
 <div class="language-switcher">
   <button [class.active]="currentLang === 'pt'" (click)="changeLang('pt')" aria-label="Português">
     BR

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
@@ -8,13 +8,15 @@ import { filter } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'My Movie List';
   currentRoute: string = '';
   isDetailRoute: boolean = false;
   menuOpen = false;
   isWideScreen = window.innerWidth > 768;
   currentLang = this.translate.currentLang || this.translate.getDefaultLang();
+  deferredPrompt: any;
+  showInstallButton = false;
 
 
   constructor(
@@ -31,6 +33,14 @@ export class AppComponent {
       });
   }
 
+  ngOnInit(): void {
+    window.addEventListener('beforeinstallprompt', (e: any) => {
+      e.preventDefault();
+      this.deferredPrompt = e;
+      this.showInstallButton = true;
+    });
+  }
+
   isRoute(path: string): boolean {
     return this.currentRoute.startsWith(path);
   }
@@ -38,6 +48,22 @@ export class AppComponent {
   changeLang(lang: 'pt' | 'en') {
     this.translate.use(lang);
     this.currentLang = lang;
+  }
+
+  installPWA() {
+    if (this.deferredPrompt) {
+      this.deferredPrompt.prompt();
+
+      this.deferredPrompt.userChoice.then((choiceResult: any) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('PWA instalado!');
+        } else {
+          console.log('Instalação recusada.');
+        }
+        this.deferredPrompt = null;
+        this.showInstallButton = false;
+      });
+    }
   }
 
   handleMenuClick() {

@@ -1,3 +1,37 @@
+.pwa-installer {
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0;
+
+  .install-button,
+  .cancel-install {
+    background-color: #007aff;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #005bb5;
+      transform: scale(1.1);
+    }
+  }
+
+  .cancel-install {
+    background-color: #db543d;
+
+    &:hover {
+      background-color: #a03f2e;
+    }
+  }
+}
+
 .main-nav {
   background-color: #fff;
   padding: 0;
