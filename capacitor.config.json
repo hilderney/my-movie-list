@@ -1,0 +1,6 @@
+{
+  "appId": "com.seuapp.mymovielist",
+  "appName": "MyMovieList",
+  "webDir": "dist/mymovielist/browser",
+  "bundledWebRuntime": false
+}
