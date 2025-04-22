@@ -1,13 +1,11 @@
 .pwa-installer {
   display: flex;
   gap: 8px;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: 4px 0;
 
-  .install-button,
-  .cancel-install {
+  button {
     background-color: #007aff;
     color: white;
     padding: 4px 8px;
@@ -15,47 +13,42 @@
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: 0.2s;
 
     &:hover {
       background-color: #005bb5;
       transform: scale(1.1);
     }
-  }
 
-  .cancel-install {
-    background-color: #db543d;
+    &.cancel-install {
+      background-color: #db543d;
 
-    &:hover {
-      background-color: #a03f2e;
+      &:hover {
+        background-color: #a03f2e;
+      }
     }
   }
 }
 
 .main-nav {
-  background-color: #fff;
+  background: #fff;
   padding: 0;
-  box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.15);
   border-radius: 0 0 8px 8px;
-  position: relative;
 
   .hamburger {
     display: none;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #007aff;
     position: absolute;
     top: 0;
     right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #007aff;
 
     div.icon {
-      transition: all 0.2s ease-in-out;
-      rotate: 0deg;
+      transition: 0.2s;
 
       &.open {
-        transition: all 0.2s ease-in-out;
         rotate: 180deg;
       }
     }
@@ -66,7 +59,6 @@
     grid-template-columns: repeat(auto-fit, minmax(120px, auto));
     gap: 1rem;
     list-style: none;
-    margin: 0;
     padding: 4px;
 
     &.open {
@@ -78,20 +70,19 @@
     text-decoration: none;
     color: #333;
     font-weight: 500;
-  }
 
-  &.active a {
-    color: #007aff;
-    font-weight: 600;
+    &.active {
+      color: #007aff;
+      font-weight: 600;
+    }
   }
 
   li {
     text-align: center;
-    text-decoration: none;
     padding: 4px 0;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: 0.2s;
 
     &:hover {
       background-color: #eef;
@@ -114,17 +105,16 @@
   margin-bottom: 0.5rem;
 
   button {
-    background-color: transparent;
+    background: transparent;
     border: 1px solid transparent;
     border-radius: 4px;
     font-size: 9px;
     font-weight: 700;
     cursor: pointer;
-    padding: 0px;
+    padding: 0;
     width: 20px;
     height: 20px;
-    transition: all 0.2s ease-in-out;
-    outline: none;
+    transition: 0.2s;
 
     &:hover {
       transform: scale(1.1);
@@ -142,7 +132,6 @@
   .main-nav {
     height: 40px;
     box-shadow: none;
-    padding: 0;
 
     .hamburger {
       display: block;
@@ -152,13 +141,13 @@
       display: none;
       grid-template-columns: 1fr;
       padding-top: 3rem;
-      background-color: #fff;
-      box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.15)
-    }
+      background: #fff;
+      box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.15);
 
-    ul.open {
-      display: grid;
-      gap: 8px;
+      &.open {
+        display: grid;
+        gap: 8px;
+      }
     }
 
     li {
