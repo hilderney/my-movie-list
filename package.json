@@ -6,6 +6,7 @@
     "start": "ng serve",
     "pwa": "npm run build && npm run http-serve",
     "build": "ng build --configuration production --base-href ./",
+    "ionic-build": "ionic build --project=mymovielist && npx cap copy",
     "http-serve": "npx http-server -p 4201 ./dist/mymovielist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
