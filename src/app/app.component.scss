@@ -129,9 +129,16 @@
 }
 
 @media (max-width: 768px) {
+  .app-wrapper {
+    margin-top: 60px;
+  }
+
   .main-nav {
     height: 40px;
     box-shadow: none;
+    position: absolute;
+    left: 0;
+    right: 0;
 
     .hamburger {
       display: block;
