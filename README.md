@@ -1,27 +1,152 @@
-# Mymovielist
+# MyMovieList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+MyMovieList is a modern Angular application for searching, listing, and rating movies, with support for PWA installation, internationalization, and mobile deployment via Capacitor.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ⚙️ Main Technologies & Resources
 
-## Code scaffolding
+- **Angular 17**: Main framework for SPA development.
+- **RxJS**: Reactive programming for handling asynchronous data streams.
+- TODO - **NgRx**: State management for Angular applications.
+- **Angular Router**: For SPA navigation and lazy loading.
+- **Angular Service Worker**: PWA support (offline, caching, install prompt).
+- **@ngx-translate/core**: Internationalization (i18n) for multi-language support.
+- **Capacitor**: For building and deploying as a mobile app.
+- **TMDb API**: For fetching movie data.
+- **SCSS**: For modular and responsive styling.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🏗️ Project Structure
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+src/
+  app/
+    pages/
+      movies/
+        movie-list/
+        movie-detail/
+        top-rated/
+    shared/
+      components/
+        movie-card/
+        star-rating/
+      services/
+        movie.service.ts
+        rating.service.ts
+    core/
+    app-routing.module.ts
+    app.module.ts
+  assets/
+    i18n/
+    img/
+  environments/
+```
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🚦 Routing & Navigation
 
-## Running end-to-end tests
+- **Lazy Loading**: The `movies` module is lazy-loaded for performance.
+- **Child Routes**: `/movies/list`, `/movies/details/:id`, `/movies/top-rated`.
+- **Navigation**: Uses `[routerLink]` for SPA navigation. Example:
+  ```html
+  <div class="card-link" [routerLink]="['/movies/details', movie.id]">
+  ```
+- **Back Button**: Uses Angular’s `Location` service for navigation history.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## 🌐 Internationalization (i18n)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **@ngx-translate/core** is used for dynamic language switching.
+- Language files are stored in `assets/i18n/`.
+- Language switcher in the UI allows toggling between `pt` and `en`.
+
+---
+
+## 🌍 Locale & Formatting
+
+- **Brazilian Locale**: Configured globally in `app.module.ts`:
+  ```typescript
+  import localePt from '@angular/common/locales/pt';
+  registerLocaleData(localePt, 'pt-BR');
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }]
+  ```
+- **Number & Date Pipes**: Automatically use Brazilian formats.
+
+---
+
+## 🔥 State Management & Observables
+
+- **Reactive Forms**: Used for search input (`FormControl`).
+- **Observables**: Movie lists and details are handled as observables for async data.
+- **RxJS Operators**: `debounceTime`, `distinctUntilChanged`, `switchMap`, `catchError`, etc.
+
+---
+
+## ⭐ Movie Rating System
+
+- **Star Rating Component**: Custom component for user ratings.
+- **Local Storage**: Ratings are persisted per movie using `rating.service.ts`.
+- **Top Rated Page**: Aggregates and displays user’s top-rated movies and favorite genres.
+
+---
+
+## 🖼️ Components
+
+- **MovieCardComponent**: Displays movie info and rating.
+- **StarRatingComponent**: Interactive star-based rating.
+- **MovieDetailComponent**: Shows detailed info and allows rating.
+- **TopRatedComponent**: Shows stats and top-rated movies.
+
+---
+
+## 📱 PWA & Mobile
+
+- **Service Worker**: Configured via `ngsw-config.json` for offline support and caching.
+- **PWA Install Prompt**: Custom UI for install, using `beforeinstallprompt` event.
+- **Capacitor**: Configured for Android deployment (`capacitor.config.ts`).
+
+---
+
+## 🎨 Styling
+
+- **SCSS**: Modular, responsive, and concise styles.
+- **Responsive Navigation**: Hamburger menu for mobile, grid layout for desktop.
+- **Custom Button Styles**: For actions like "Voltar" (Back).
+
+---
+
+## 🧪 Testing
+
+- TODO - **Unit Tests**: Configured with Karma and Jasmine (`ng test`).
+- TODO - **E2E Tests**: Configured with Cypress (`ng e2e`).
+
+---
+
+## 📝 Useful Scripts
+
+- `npm start` — Run dev server.
+- `npm run build` — Production build.
+- `npm run pwa` — Build and serve as PWA.
+- `npm run android-sync` — Sync with Android via Capacitor.
+
+---
+
+## 📚 Further Reading
+
+- [Angular CLI Docs](https://angular.io/cli)
+- [Angular Service Worker](https://angular.io/guide/service-worker-intro)
+- [ngx-translate](https://github.com/ngx-translate/core)
+- [Capacitor](https://capacitorjs.com/)
+- [TMDb API](https://developers.themoviedb.org/3)
+
+---
+
+## 💡 Highlights
+
+- **Modern Angular best practices**: Lazy loading, OnPush change detection, modular architecture.
+- **User-centric features**: Offline support, installable as PWA, mobile-ready, persistent ratings.
+- **Clean, maintainable code**: Use of services, observables, and modular SCSS.
