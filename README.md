@@ -20,28 +20,30 @@ MyMovieList is a modern Angular application for searching, listing, and rating m
 
 ## 🏗️ Project Structure
 
-```
+```bash
 src/
-  app/
-    pages/
-      movies/
-        movie-list/
-        movie-detail/
-        top-rated/
-    shared/
-      components/
-        movie-card/
-        star-rating/
-      services/
-        movie.service.ts
-        rating.service.ts
-    core/
-    app-routing.module.ts
-    app.module.ts
-  assets/
-    i18n/
-    img/
-  environments/
+|- app/
+  |- pages/
+    |- movies/
+      |- movie-list/
+      |- movie-detail/
+      |- top-rated/
+  |- shared/
+    |- components/
+      |- movie-card/
+      |- star-rating/
+    |- services/
+      |- movie.service.ts
+      |- rating.service.ts
+  |- core/
+  |- app-routing.module.ts
+  |- app.module.ts
+|- assets/
+  |- i18n/
+  |- img/
+|- environments/
+  |- environment.ts
+  |- environment.prod.ts
 ```
 
 ---
@@ -69,11 +71,11 @@ src/
 ## 🌍 Locale & Formatting
 
 - **Brazilian Locale**: Configured globally in `app.module.ts`:
-  ```typescript
+```typescript
   import localePt from '@angular/common/locales/pt';
   registerLocaleData(localePt, 'pt-BR');
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }]
-  ```
+```
 - **Number & Date Pipes**: Automatically use Brazilian formats.
 
 ---
@@ -148,5 +150,11 @@ src/
 ## 💡 Highlights
 
 - **Modern Angular best practices**: Lazy loading, OnPush change detection, modular architecture.
+- **PWA features**: Offline support, caching, install prompt, mobile deployment.
+- **Internationalization**: Multi-language support with ngx-translate.
+- **Responsive design**: Mobile-first approach with SCSS and Angular Material.
+- **User-friendly UI**: Intuitive navigation, star rating system, and top-rated movies feature.
+- **Performance optimizations**: Lazy loading, observables, and efficient state management.
+- **Solid Principles for Frontend Development**: Separation of concerns, single responsibility, and modularity.
 - **User-centric features**: Offline support, installable as PWA, mobile-ready, persistent ratings.
 - **Clean, maintainable code**: Use of services, observables, and modular SCSS.
