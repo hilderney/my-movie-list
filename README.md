@@ -123,7 +123,7 @@ src/
 
 ## 🧪 Testing
 
-- TODO - **Unit Tests**: Configured with Karma and Jasmine (`ng test`).
+- **Unit Tests**: Configured with Karma and Jasmine (`ng test`).
 - TODO - **E2E Tests**: Configured with Cypress (`ng e2e`).
 
 ---
